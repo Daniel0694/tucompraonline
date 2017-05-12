@@ -25,10 +25,10 @@ public class ProductoDao {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 
-	public List<Producto> getProductos() throws SQLException {
+	public List<Producto> getProductos() {
 		List<Producto> productos = new ArrayList<>();
 
-		String selectSql = "CALL obtenerProducto();";
+		String selectSql = "CALL obtenerProductos();";
 		jdbcTemplate
 				.query(selectSql, new Object[] {},
 						(rs, row) -> new Producto(rs.getInt("id_producto"), rs.getString("nombre"),

@@ -15,7 +15,7 @@ public class ProductoService {
 	@Autowired
 	private ProductoDao productoDao;
 	
-	public List<Producto> getProductos() throws SQLException {
+	public List<Producto> getProductos() {
 		return productoDao.getProductos();
 	}
 	public List<Producto> getProductosPorCategoria(int idCategoria) throws SQLException {
