@@ -14,6 +14,14 @@ public class Categoria {
 		this.productos = new LinkedList<>();
 	}
 
+	public Categoria(int idCategoria, String nombre, String descripcion) {
+		this.idCategoria = idCategoria;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.productos = new LinkedList<>();
+		
+	}
+
 	public int getIdCategoria() {
 		return idCategoria;
 	}

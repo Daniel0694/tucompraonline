@@ -1,6 +1,7 @@
 package com.tucompraonline.domain;
 
 import java.awt.image.BufferedImage;
+import java.sql.Blob;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -16,6 +17,16 @@ public class Producto {
 	
 	public Producto(){
 		this.categorias = new LinkedList<>();
+	}
+
+	public Producto(int idProducto, String nombreProducto, String descripcion, float precio, int cantidadDisponible) {
+			this.idProducto = idProducto;
+			this.nombreProducto = nombreProducto;
+			this.descripcion = descripcion;
+			this.precio = precio;
+			this.cantidadDisponible = cantidadDisponible;
+			this.categorias = new LinkedList<>();
+		
 	}
 
 	public int getIdProducto() {
