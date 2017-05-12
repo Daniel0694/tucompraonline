@@ -1,0 +1,84 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	background: #212121;
+	color:#FFF;
+	font-size: 2em; 
+}
+
+h1{
+	color: #1E6381;
+	color: #FFFFFF;
+	margin: 0.25em auto;
+	text-align: center;
+	text-shadow: 5px 5px 10px rgba(255,255,255,0.5);
+}
+
+
+
+section#contenedor{
+	//background: #FFF;
+	margin: 0.5em auto;
+	max-width: 960px;
+	padding: 0;
+	text-align: center;
+}
+
+section#principal, aside{
+	background: #1E6381;
+	border-radius:0.5em;
+	margin: 0.25em auto;
+	max-width: 960px;
+	min-height: 200px;
+	display: inline-block; 
+	padding: 0.25em;
+	text-align: center;
+	vertical-align: top;
+	width: 100%;
+}
+
+aside#left ,aside#right{
+		color:#2CAE89;
+	background: url(../img/fondo.jpg);
+	border-radius:0.5em;
+	display: inline-block; 
+	margin: 0.25em auto;
+	max-width: 960px;
+	min-height: 200px;
+	padding: 0.25em;
+	text-align: center;
+	vertical-align: top;
+	width: 40%;
+
+}
+
+
+aside{
+	width: 30%;
+}
+
+article{
+	background: #011E30;;
+	border-radius:0.5em;
+	min-height: 140px;
+	padding: 0.25em;
+
+}
+
+
+body {
+	background: url(../images/fondo.jpg);
+}
+
+body #secundario{
+	background: url(../images/fondo-gris2-diseno-web.png);
+}
+
+footer {
+	text-align: center;
+	color:#FFFFFF
+	
+}

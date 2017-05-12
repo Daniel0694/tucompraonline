@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Registro de Usuarios</title>
+	<link rel="stylesheet" type="text/css" href="css/estilos.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body >
+	<h1 align="center">Registro de Usuarios</h1>
+<header>
+	<!-- Este template esta hecho para insertar usuarios al sistema -->
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="panel panel-login">
+					<div class="panel-heading">
+						<div class="row"></div>
+
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-lg-12">
+								<form th:object="${UsuarioForm}"
+									th:action="@{/registro/salvar}" method="post">
+
+										<!-- Nombre -->
+									<div class="form-group">
+										<label for="usuario">Nombre</label> <input type="text"
+											id="usuario" name="usuario" placeholder=""
+											class="form-control">
+										<p class="help-block">Puede contener letras y caracteres,
+											no utilice espacios</p>
+									</div>
+
+									<!-- Cedula -->
+
+									<div class="form-group">
+										<label for="cedula">Cédula</label> <input type="text"
+											id="cedula" name="cedula" placeholder="" class="form-control">
+										<p class="help-block">debe introducir su cédula</p>
+									</div>
+
+									<!-- Telefono -->
+
+									<div class="form-group">
+										<label for="telefono">Telefono</label> <input type="text"
+											id="telefono" name="telefono" placeholder=""
+											class="form-control">
+										<p class="help-block">introduzca su telefono</p>
+									</div>
+
+									<!-- Correo -->
+
+									<div class="form-group">
+										<label for="correo">Correo</label> <input type="text" id="país"
+											name="correo" placeholder="" class="form-control">
+										<p class="help-block">Introduzca su correo</p>
+									</div>
+
+									<!-- Nombre Usuario -->
+
+									<div class="form-group">
+										<label class="control-label" for="nombreUsuario">Nombre de Usuario</label> <input
+											type="text" id="nombreUsuario" name="nombreUsuario" placeholder=""
+											class="form-control">
+										<p class="help-block">debe introducir un nombre de usuario</p>
+									</div>
+
+
+									<!-- Password -->
+
+									<div class="contform-grouprols">
+										<label class="control-label" for="ciudad">Contrasena</label> <input
+											type="password" id="contrasena" name="contrasena" placeholder=""
+											class="form-control">
+										<p class="help-block">introduzca  una contrase;a</p>
+									</div>
+
+
+									<!-- Password confirm-->
+
+									<div class="contform-grouprols">
+										<label class="control-label" for="ciudad">Confirme su Contrasena</label> <input
+											type="password" id="contrasenaC" name="contrasenaC" placeholder=""
+											class="form-control">
+										<p class="help-block">confirmacion</p>
+									</div>
+									
+							
+							<button class="btn btn-default"type="submit" align="center">Insertar Usuario</button>
+							</form>
+						</div>
+
+
+
+					</div>
+
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+	</div>
+</header>
+
+
+<section>
+
+
+
+</section>
+
+
+<footer>
+	
+		
+			<h6>Proyecto 1 Lenguajes para aplicaciones Comerciales</h6>
+	
+	</footer>
+
+
+
+
+</body>
+</html>
