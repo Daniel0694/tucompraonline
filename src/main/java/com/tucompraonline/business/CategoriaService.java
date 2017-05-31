@@ -18,5 +18,14 @@ public class CategoriaService {
 	public List<Categoria> getCategorias() throws SQLException {
 		return categoriaDao.getCategorias();
 	}
+	public Categoria insertarCategoria (Categoria categoria) throws SQLException {
+		return categoriaDao.insertarCategoria(categoria);
+	}
+	public boolean eliminarCategoria(int idCategoria) {
+		return categoriaDao.eliminarCategoria(idCategoria);
+	}
+	public boolean actualizaCategoria(Categoria categoria) {
+		return categoriaDao.actualizaCategoria(categoria);
+	}
 	
 }

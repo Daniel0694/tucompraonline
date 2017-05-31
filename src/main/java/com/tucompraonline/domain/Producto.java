@@ -12,20 +12,21 @@ public class Producto {
 	private String descripcion;
 	private float precio;
 	private int cantidadDisponible;
-	private BufferedImage imagen;
+	private String rutaImagen;
 	private List<Categoria> categorias;
 	
 	public Producto(){
 		this.categorias = new LinkedList<>();
 	}
 
-	public Producto(int idProducto, String nombreProducto, String descripcion, float precio, int cantidadDisponible) {
+	public Producto(int idProducto, String nombreProducto, String descripcion, float precio, int cantidadDisponible, String imagen) {
 			this.idProducto = idProducto;
 			this.nombreProducto = nombreProducto;
 			this.descripcion = descripcion;
 			this.precio = precio;
 			this.cantidadDisponible = cantidadDisponible;
 			this.categorias = new LinkedList<>();
+			this.rutaImagen = imagen;
 		
 	}
 
@@ -69,12 +70,12 @@ public class Producto {
 		this.cantidadDisponible = cantidadDisponible;
 	}
 
-	public BufferedImage getImagen() {
-		return imagen;
+	public String getImagen() {
+		return rutaImagen;
 	}
 
-	public void setImagen(BufferedImage imagen) {
-		this.imagen = imagen;
+	public void setImagen(String imagen) {
+		this.rutaImagen = imagen;
 	}
 
 	public List<Categoria> getCategorias() {
