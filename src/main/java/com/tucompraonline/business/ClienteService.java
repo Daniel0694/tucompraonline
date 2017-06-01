@@ -13,8 +13,8 @@ public class ClienteService {
 	private ClienteDao clienteDao;
 	
 	
-	public Cliente getCliente (int idUsuario){
-		return clienteDao.getCliente(idUsuario);
+	public Cliente getCliente (String user, String pass){
+		return clienteDao.getCliente(user, pass);
 	}
 	public Cliente insertarCliente (Cliente cliente){
 		return clienteDao.insertarCliente(cliente);

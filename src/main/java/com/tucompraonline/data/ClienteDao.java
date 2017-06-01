@@ -33,11 +33,11 @@ public class ClienteDao {
 		this.SJDBCEliminarCliente = new SimpleJdbcCall(dataSource).withProcedureName("deleteCliente");
 	}
 	
-	public Cliente getCliente (int idUsuario){
+	public Cliente getCliente (String user, String pass){
 		
 		List<Cliente> clientes = new ArrayList<>();
 
-		String selectSql = "CALL obtenerCliente("+ idUsuario+");";
+		String selectSql = "CALL getCliente("+user+","+pass+");";
 		jdbcTemplate.query(selectSql, new Object[] {},
 						(rs, row) -> new Cliente(rs.getInt("id_usuario"),
 								rs.getString("cedula"),

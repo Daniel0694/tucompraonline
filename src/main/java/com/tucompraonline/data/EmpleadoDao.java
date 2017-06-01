@@ -33,11 +33,11 @@ public class EmpleadoDao {
 		this.SJDBCEliminarEmpleado = new SimpleJdbcCall(dataSource).withProcedureName("deleteEmpleado");
 	}
 	
-	public Empleado getEmpleado (int idUsuario){
+	public Empleado getEmpleado (String user, String pass){
 		
 		List<Empleado> empleados = new ArrayList<>();
 
-		String selectSql = "CALL obtenerEmpleado("+ idUsuario+");";
+		String selectSql = "CALL getEmpleado("+ user+","+pass+");";
 		jdbcTemplate.query(selectSql, new Object[] {},
 						(rs, row) -> new Empleado(rs.getInt("id_usuario"),
 								rs.getString("cedula"),

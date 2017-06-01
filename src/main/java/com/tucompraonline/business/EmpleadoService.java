@@ -23,7 +23,7 @@ public class EmpleadoService {
 		return empleadoDao.eliminaEmpleado(idUsuario);
 	}
 	
-	public Empleado getEmpleado (int idUsuario){
-		return empleadoDao.getEmpleado(idUsuario);
+	public Empleado getEmpleado (String user, String pass){
+		return empleadoDao.getEmpleado(user, pass);
 	}
 }
