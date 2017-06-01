@@ -36,5 +36,28 @@ public class ProductoController {
 		return "mantenimientoProductos";
 
 	}
+	
+	
+	@RequestMapping(value = "/mantenimientoProductos/actualizar", method = RequestMethod.GET)
+	public String actualizarProducto(Model model) {
+		
+		//// traer  los  datos  del producto a  actualizar
+	
+	return "actualizarProducto";
+	
+	}
+	
+	
+	@RequestMapping(value = "/mantenimientoProductos/eliminar", method = RequestMethod.GET)
+	public String eliminarProducto(Model model) {
+		
+		
+		productos = productoService.getProductos();
+		model.addAttribute("productos", productos);
+	
+	return "elimina";
+	
+	}
+
 
 }

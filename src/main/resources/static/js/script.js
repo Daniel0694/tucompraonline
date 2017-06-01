@@ -13,6 +13,8 @@ function showModal(name) {
 		modal = document.getElementById('modal-Acercade');
 	else if (name == "sesion")
 		modal = document.getElementById('modal-CerrarSesion');
+	else if(name=="producto")
+		modal = document.getElementById('modal-producto');
 
 	modal.style.display = 'block';
 }
@@ -27,6 +29,8 @@ function closeModal(name) {
 		modal = document.getElementById('modal-Acercade');
 	else if (name == "sesion")
 		modal = document.getElementById('modal-CerrarSesion');
+	else if(name=="producto")
+		modal = document.getElementById('modal-producto');
 
 	modal.style.display = 'none';
 }

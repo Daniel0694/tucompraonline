@@ -72,7 +72,7 @@
 
 		<!-- form de busquedas  -->
 
-		<form th:object="${UsuarioForm}" th:action="@{/buscarProducto}"
+		<form th:object="${UsuarioForm}" th:action="@{/mantenimientoProductos}"
 			method="post">
 
 
@@ -122,13 +122,14 @@
 								<td><span th:text="${entry.descripcion}"></span></td>
 								<td><span th:text="${entry.precio}"></span></td>
 								<td><span th:text="${entry.cantidadDisponible}"></span></td>
-								<td><button type="submit" class="btn btn-default btn-sm"
-										id="agregar">
+								<td><button type="button"  class="btn btn-default btn-sm"
+										id="agregar" onclick="showModal('producto')">
 										Eliminar<span class="glyphicon glyphicon-trash"></span>
-									</button>
-									<button type="submit" class="btn btn-default btn-sm"
-										id="agregar">
+									 </button>
+									<button type="button"  class="btn btn-default btn-sm"
+										id="agregar" onclick="location.href='/mantenimientoProductos/actualizar'" >
 										Actualizar<span class="glyphicon glyphicon-refresh"></span>
+										
 									</button></td>
 							</tr>
 
@@ -208,6 +209,30 @@
 			
 		</div>
 	</div>
+	
+	
+	
+		<!-- 		modal eliminar producto -->
+	<div id="modal-producto" class="modal">
+		<div id="modal-body" class="modal-body">
+
+
+			<div class="row panel-body">
+				<p>¿Está seguro que desea eliminar el  siguiente producto ? <br>
+		Codigo del producto:
+		<br>Nombre del producto:
+		<br></p>
+			</div>
+
+			<div class="row">
+				<button class="btn btn-default" type="button"
+					onclick="closeModal('producto')">No</button>
+					<a th:href="@{/mantenimientoProductos/eliminar}" class="btn btn-default">Si</a>
+			</div>
+			
+		</div>
+	</div>
+	
 
 
 	<footer>
