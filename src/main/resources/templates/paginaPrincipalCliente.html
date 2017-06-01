@@ -23,32 +23,25 @@
 				<div class="navbar-header">
 					<button class="navbar-toggle" type="button" data-toggle="collapse"
 						data-target="#navbar-main"></button>
-					<a class="navbar-brand" href="/inicio">Tu Compra Online</a>
+					<a class="navbar-brand" href="/inicioCliente">Tu Compra Online
+						Cliente</a>
 				</div>
 
 				<div class="navbar-collapse collapse" id="navbar-main">
 					<ul class="nav navbar-nav">
 
-						<li><a href="/registro">Reg&iacute;strate</a></li>
-						<li><a href="#">Carrito</a></li>
+						<li><a href="#">Actualizar mis datos</a></li>
+						<li><a href="#">Mi carrito</a></li>
+						<li><a href="#">Top de Ventas</a></li>
 						<li><a href="#" onclick="showModal('acerca')">Acerca de </a></li>
 						<li><a href="#" onclick="showModal('ayuda')">Ayuda</a></li>
-
+						<li><a href=# onclick="showModal('sesion')">Cerrar Sesi&oacute;n</a></li>
+						<td><button type="button" class="btn btn-default btn-sm"
+										id="agregar">
+										Agregar a carrito<span class="glyphicon glyphicon-heart"></span>
+									</button></td>
 					</ul>
 
-					<!-- Form para Login  -->
-					<form th:object="${UsuarioForm}" th:action="@{/registro/login}"
-						method="post" class="navbar-form navbar-right" role="search">
-						<div class="form-group">
-							<input type="text" class="form-control" name="username"
-								placeholder="Usuario">
-						</div>
-						<div class="form-group">
-							<input type="text" class="form-control" name="password"
-								placeholder="Contraseña">
-						</div>
-						<button type="submit" class="btn btn-default">Entrar</button>
-					</form>
 				</div>
 			</div>
 		</div>
@@ -78,11 +71,7 @@
 				<select class="form-control">
 					<option value="todas">Todas</option>
 					<option>todas las de mas</option>
-
 				</select>
-
-
-
 
 			</div>
 
@@ -94,8 +83,6 @@
 					Buscar! <span class="glyphicon glyphicon-search"></span>
 				</button>
 			</div>
-
-
 
 			</aside>
 			<section id="principal">
@@ -184,6 +171,27 @@
 					onclick="closeModal('ayuda')">Cerrar</button>
 			</div>
 
+		</div>
+	</div>
+	
+	
+	
+	<!-- 		modal Acerca de -->
+	<div id="modal-CerrarSesion" class="modal">
+		<div id="modal-body" class="modal-body">
+
+
+			<div class="row panel-body">
+				<p>Esta seguro que desea cerrar sesi&oacute;n?</p>
+			</div>
+
+			<div class="row">
+				<button class="btn btn-default" type="button"
+					onclick="closeModal('sesion')">No</button>
+					<button class="btn btn-default" type="button"
+					onclick="location.href='/inicio'">Si</button>
+			</div>
+			
 		</div>
 	</div>
 

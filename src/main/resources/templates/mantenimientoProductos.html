@@ -23,32 +23,35 @@
 				<div class="navbar-header">
 					<button class="navbar-toggle" type="button" data-toggle="collapse"
 						data-target="#navbar-main"></button>
-					<a class="navbar-brand" href="/inicio">Tu Compra Online</a>
+					<a class="navbar-brand" href="/inicioEmpleado">Tu Compra Online
+						Administrador</a>
 				</div>
 
 				<div class="navbar-collapse collapse" id="navbar-main">
 					<ul class="nav navbar-nav">
 
-						<li><a href="/registro">Reg&iacute;strate</a></li>
-						<li><a href="#">Carrito</a></li>
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown"> Productos <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="">Mantenimiento</a></li>
+								<li><a href="/registroProducto">Registro</a></li>
+							</ul></li>
+
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown"> Categor&iacute;as <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Mantenimiento</a></li>
+								<li><a href="#">Registro</a></li>
+							</ul></li>
+						<li><a href="#">Actualizar mis datos</a></li>
+
+						<li><a href="#">Top de Ventas</a></li>
 						<li><a href="#" onclick="showModal('acerca')">Acerca de </a></li>
 						<li><a href="#" onclick="showModal('ayuda')">Ayuda</a></li>
-
+						<li><a href=# onclick="showModal('sesion')">Cerrar Sesi&oacute;n</a></li>
 					</ul>
 
-					<!-- Form para Login  -->
-					<form th:object="${UsuarioForm}" th:action="@{/registro/login}"
-						method="post" class="navbar-form navbar-right" role="search">
-						<div class="form-group">
-							<input type="text" class="form-control" name="username"
-								placeholder="Usuario">
-						</div>
-						<div class="form-group">
-							<input type="text" class="form-control" name="password"
-								placeholder="Contraseña">
-						</div>
-						<button type="submit" class="btn btn-default">Entrar</button>
-					</form>
+
 				</div>
 			</div>
 		</div>
@@ -65,7 +68,7 @@
 
 
 		<asideid="left"> <br>
-		<h3>¡Tu lugar de compras favorito!</h3>
+		<h3>Mantenimiento de Productos</h3>
 
 		<!-- form de busquedas  -->
 
@@ -78,11 +81,7 @@
 				<select class="form-control">
 					<option value="todas">Todas</option>
 					<option>todas las de mas</option>
-
 				</select>
-
-
-
 
 			</div>
 
@@ -94,8 +93,6 @@
 					Buscar! <span class="glyphicon glyphicon-search"></span>
 				</button>
 			</div>
-
-
 
 			</aside>
 			<section id="principal">
@@ -127,7 +124,11 @@
 								<td><span th:text="${entry.cantidadDisponible}"></span></td>
 								<td><button type="submit" class="btn btn-default btn-sm"
 										id="agregar">
-										Agregar a carrito<span class="glyphicon glyphicon-heart"></span>
+										Eliminar<span class="glyphicon glyphicon-trash"></span>
+									</button>
+									<button type="submit" class="btn btn-default btn-sm"
+										id="agregar">
+										Actualizar<span class="glyphicon glyphicon-refresh"></span>
 									</button></td>
 							</tr>
 
@@ -184,6 +185,27 @@
 					onclick="closeModal('ayuda')">Cerrar</button>
 			</div>
 
+		</div>
+	</div>
+	
+	
+	
+	<!-- 		modal Acerca de -->
+	<div id="modal-CerrarSesion" class="modal">
+		<div id="modal-body" class="modal-body">
+
+
+			<div class="row panel-body">
+				<p>Esta seguro que desea cerrar sesi&oacute;n?</p>
+			</div>
+
+			<div class="row">
+				<button class="btn btn-default" type="button"
+					onclick="closeModal('sesion')">No</button>
+					<button class="btn btn-default" type="button"
+					onclick="location.href='/inicio'">Si</button>
+			</div>
+			
 		</div>
 	</div>
 

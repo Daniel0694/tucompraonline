@@ -29,5 +29,28 @@ public class ShoppingCartController {
 		return "paginaPrincipal";
 
 	}
+	
+	
+	@RequestMapping(value = "/inicioEmpleado", method = RequestMethod.GET)
+	public String showInicioEmpleado(Model model) {
+		// model.addAttribute("productos", productos);
+
+		productos = productoService.getProductos();
+		model.addAttribute("productos", productos);
+
+		return "paginaPrincipalEmpleado";
+
+	}
+	
+	@RequestMapping(value = "/inicioCliente", method = RequestMethod.GET)
+	public String showInicioCliente(Model model) {
+		// model.addAttribute("productos", productos);
+
+		productos = productoService.getProductos();
+		model.addAttribute("productos", productos);
+
+		return "paginaPrincipalCliente";
+
+	}
 
 }
