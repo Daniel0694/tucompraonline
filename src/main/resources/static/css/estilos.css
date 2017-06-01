@@ -1,3 +1,24 @@
+
+
+* {
+    margin:0;
+    padding:0;
+    font:12pt Arial;
+}
+
+
+
+.field {
+  display:flex;
+  position:realtive;
+  margin:5em auto;
+  width:70%;
+  flex-direction:row;
+  
+}
+
+
+
 *{
 	margin: 0;
 	padding: 0;
@@ -5,12 +26,12 @@
 
 body{
 	background: #212121;
-	color:#FFF;
+	color:#2CAE89;
 	font-size: 2em; 
 }
 
 h1{
-	color: #1E6381;
+	color: #2CAE89;
 	color: #FFFFFF;
 	margin: 0.25em auto;
 	text-align: center;
@@ -20,7 +41,7 @@ h1{
 
 
 section#contenedor{
-	//background: #FFF;
+	//background: #bfbfbf;
 	margin: 0.5em auto;
 	max-width: 960px;
 	padding: 0;
@@ -28,7 +49,7 @@ section#contenedor{
 }
 
 section#principal, aside{
-	background: #1E6381;
+	background: #bfbfbf;
 	border-radius:0.5em;
 	margin: 0.25em auto;
 	max-width: 960px;
@@ -77,8 +98,35 @@ body #secundario{
 	background: url(../images/fondo-gris2-diseno-web.png);
 }
 
-footer {
+.modal {
+	height: 100%;
+	width: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	display: none;
 	text-align: center;
-	color:#FFFFFF
+	border-radius:0.5em;
+}
+
+.modal-body {
+	position: fixed;
+	margin: 10% 30%;
+	padding: 0.5em;
+	height: auto;
+	border: 1px solid #DDD;
+	background-color: #c0c0c0;
+	color: #000;
+	width: 35%;
+	animation: fade 0.5s;
 	
 }
+
+
+footer {
+	text-align: center;
+	color:#2CAE89
+	
+}
+
