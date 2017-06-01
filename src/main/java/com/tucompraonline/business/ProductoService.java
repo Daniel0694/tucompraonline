@@ -15,6 +15,10 @@ public class ProductoService {
 	@Autowired
 	private ProductoDao productoDao;
 	
+	
+	public Producto getProducto(int idProducto) {
+		return productoDao.getProducto(idProducto);
+	}
 	public List<Producto> getProductos() {
 		return productoDao.getProductos();
 	}

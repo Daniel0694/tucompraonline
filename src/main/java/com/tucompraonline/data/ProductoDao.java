@@ -25,6 +25,7 @@ public class ProductoDao {
 
 	private JdbcTemplate jdbcTemplate;
 	private SimpleJdbcCall SJDBCInsertaProducto;
+	private SimpleJdbcCall SJDBCInsertaProductoCategoria;
 	private SimpleJdbcCall SJDBCEliminaProducto;
 	private SimpleJdbcCall SJDBCActualizaProducto;
 
@@ -32,6 +33,7 @@ public class ProductoDao {
 	public void setDataSource(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 		this.SJDBCInsertaProducto = new SimpleJdbcCall(dataSource).withProcedureName("insertarProducto");
+		this.SJDBCInsertaProductoCategoria = new SimpleJdbcCall(dataSource).withProcedureName("insertarProducto");
 		this.SJDBCActualizaProducto = new SimpleJdbcCall(dataSource).withProcedureName("updateProducto");
 		this.SJDBCEliminaProducto = new SimpleJdbcCall(dataSource).withProcedureName("deleteProducto");
 	}
@@ -128,6 +130,14 @@ public class ProductoDao {
 		
 		producto.setIdProducto(Integer.parseInt(outParameters.get("_id_producto").toString()));
 		
+		for (int i = 0; i < producto.getCategorias().size(); i++) {
+			SqlParameterSource parameterSourceProductoCategoria = new MapSqlParameterSource()
+					.addValue("_id_producto", producto.getIdProducto())
+					.addValue("_id_categoria", producto.getCategorias().get(i).getIdCategoria());
+			
+			Map outParametersForLibroAutor = SJDBCInsertaProductoCategoria.execute(parameterSourceProductoCategoria);
+		}
+		
 		return producto;
 	}
 	
@@ -159,6 +169,21 @@ public class ProductoDao {
 		} catch (Error e) {
 			return false;
 		}
+	}
+	
+	public Producto getProducto(int idProducto) {
+		List<Producto> productos = new ArrayList<>();
+
+		String selectSql = "CALL obtenerProducto("+ idProducto+");";
+		jdbcTemplate.query(selectSql, new Object[] {},
+						(rs, row) -> new Producto(rs.getInt("id_producto"), rs.getString("nombre"),
+								rs.getString("descripcion"),
+								rs.getFloat("precio"), 
+								rs.getInt("cantidad_disponible"),
+								rs.getString("imagen")))
+				.forEach(entry -> productos.add(entry));
+		// TODO recuperar categorias
+		return productos.get(0);
 	}
 	
 

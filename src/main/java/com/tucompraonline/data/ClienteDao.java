@@ -1,5 +1,7 @@
 package com.tucompraonline.data;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import javax.sql.DataSource;
@@ -13,6 +15,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.tucompraonline.domain.Cliente;
+import com.tucompraonline.domain.Producto;
 
 @Repository
 public class ClienteDao {
@@ -26,8 +29,33 @@ public class ClienteDao {
 	public void setDataSource(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 		this.SJDBCAgregarCliente = new SimpleJdbcCall(dataSource).withProcedureName("insertarCliente");
-		this.SJDBCActualizarCliente = new SimpleJdbcCall(dataSource).withProcedureName("actualzarCliente");
+		this.SJDBCActualizarCliente = new SimpleJdbcCall(dataSource).withProcedureName("actualizarCliente");
 		this.SJDBCEliminarCliente = new SimpleJdbcCall(dataSource).withProcedureName("deleteCliente");
+	}
+	
+	public Cliente getCliente (int idUsuario){
+		
+		List<Cliente> clientes = new ArrayList<>();
+
+		String selectSql = "CALL obtenerCliente("+ idUsuario+");";
+		jdbcTemplate.query(selectSql, new Object[] {},
+						(rs, row) -> new Cliente(rs.getInt("id_usuario"),
+								rs.getString("cedula"),
+								rs.getString("nombre"),
+								rs.getString("correo_electronico"), 
+								rs.getString("telefono"),
+								rs.getString("nombre_usuario"),
+								rs.getString("password"),
+								rs.getBoolean("activo"),
+								rs.getString("pais"),
+								rs.getString("estado"),
+								rs.getString("ciudad"),
+								rs.getString("codigo_postal"),
+								rs.getString("direccion")))
+				.forEach(entry -> clientes.add(entry));
+		
+		return clientes.get(0);
+		
 	}
 	
 	@Transactional

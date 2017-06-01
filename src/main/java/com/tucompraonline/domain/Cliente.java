@@ -13,6 +13,23 @@ public class Cliente extends Usuario{
 		super();	
 		
 	}
+	
+	public Cliente(int idUsuario, String cedula, 
+			String nombre, String correoElectronico,
+			String telefono,String nombreUsuario,
+			String password, boolean activo,
+			String pais, String estado, String ciudad,
+			String codigoPostal, String direccion) {
+		super(idUsuario, cedula, nombre, correoElectronico, telefono, nombreUsuario, password, activo);
+		
+		this.pais = pais; 
+		this.estado = estado;
+		this.ciudad = ciudad;
+		this.codigoPostal = codigoPostal;
+		this.direccion = direccion;
+	}
+
+
 
 
 	public String getPais() {

@@ -14,6 +14,23 @@ public class Usuario {
 	public Usuario(){
 		
 	}
+	
+	
+
+	public Usuario(int idUsuario, String cedula, String nombre, String correoElectronico, String telefono,
+			String nombreUsuario, String password, boolean activo) {
+		super();
+		this.idUsuario = idUsuario;
+		this.cedula = cedula;
+		this.nombre = nombre;
+		this.correoElectronico = correoElectronico;
+		this.telefono = telefono;
+		this.nombreUsuario = nombreUsuario;
+		this.password = password;
+		this.activo = activo;
+	}
+
+
 
 	public int getIdUsuario() {
 		return idUsuario;
