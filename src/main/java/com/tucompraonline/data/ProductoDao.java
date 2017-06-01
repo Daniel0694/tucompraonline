@@ -33,7 +33,7 @@ public class ProductoDao {
 	public void setDataSource(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 		this.SJDBCInsertaProducto = new SimpleJdbcCall(dataSource).withProcedureName("insertarProducto");
-		this.SJDBCInsertaProductoCategoria = new SimpleJdbcCall(dataSource).withProcedureName("insertarProducto");
+		this.SJDBCInsertaProductoCategoria = new SimpleJdbcCall(dataSource).withProcedureName("insertarProductoCategoria");
 		this.SJDBCActualizaProducto = new SimpleJdbcCall(dataSource).withProcedureName("updateProducto");
 		this.SJDBCEliminaProducto = new SimpleJdbcCall(dataSource).withProcedureName("deleteProducto");
 	}
@@ -125,7 +125,7 @@ public class ProductoDao {
 				.addValue("_descripcion", producto.getDescripcion())
 				.addValue("_precio", producto.getPrecio())
 				.addValue("_cantidad_disponible", producto.getCantidadDisponible())
-				.addValue("_imagen", producto.getImagen());
+				.addValue("_imagen", producto.getRutaImagen());
 		Map<String, Object> outParameters = SJDBCInsertaProducto.execute(parameterSourceProducto);
 		
 		producto.setIdProducto(Integer.parseInt(outParameters.get("_id_producto").toString()));
@@ -150,7 +150,7 @@ public class ProductoDao {
 					.addValue("_descripcion", producto.getDescripcion())
 					.addValue("_precio", producto.getPrecio())
 					.addValue("_cantidad_disponible", producto.getCantidadDisponible())
-					.addValue("_imagen", producto.getImagen());
+					.addValue("_imagen", producto.getRutaImagen());
 			SJDBCActualizaProducto.execute(procedimientoActualizarProducto);
 
 		} catch (Error e) {

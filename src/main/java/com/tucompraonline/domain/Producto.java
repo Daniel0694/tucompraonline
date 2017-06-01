@@ -14,6 +14,7 @@ public class Producto {
 	private int cantidadDisponible;
 	private String rutaImagen;
 	private List<Categoria> categorias;
+	private int cantidadComprados;
 	
 	public Producto(){
 		this.categorias = new LinkedList<>();
@@ -70,13 +71,7 @@ public class Producto {
 		this.cantidadDisponible = cantidadDisponible;
 	}
 
-	public String getImagen() {
-		return rutaImagen;
-	}
-
-	public void setImagen(String imagen) {
-		this.rutaImagen = imagen;
-	}
+	
 
 	public List<Categoria> getCategorias() {
 		return categorias;
@@ -84,6 +79,22 @@ public class Producto {
 
 	public void setCategorias(List<Categoria> categorias) {
 		this.categorias = categorias;
+	}
+
+	public String getRutaImagen() {
+		return rutaImagen;
+	}
+
+	public void setRutaImagen(String rutaImagen) {
+		this.rutaImagen = rutaImagen;
+	}
+
+	public int getCantidadComprados() {
+		return cantidadComprados;
+	}
+
+	public void setCantidadComprados(int cantidadComprados) {
+		this.cantidadComprados = cantidadComprados;
 	}
 	
 	
