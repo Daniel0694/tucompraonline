@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Registro de Usuarios</title>
 <link rel="stylesheet" type="text/css" href="css/estilos.css">
 <link rel="stylesheet"
@@ -42,7 +42,7 @@
 	</header>
 
 	<section id="contenedor">
-		<!-- Este template esta hecho para actualizar  empleados al sistema -->
+		<!-- Este template esta hecho para actualizar  clientes del sistema -->
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3">
@@ -54,41 +54,41 @@
 						<div class="panel-body">
 							<div class="row">
 								<div class="col-lg-12">
-									<form th:action="@{/actualizarEmpleado/actualizar}"
+									<form th_object="${cliente}" th:action="@{/actualizarCliente/actualizar}"
 										method="post">
 
 										<!-- Nombre -->
-										<div class="form-group">
-											<label for="usuario">Nombre</label> <input type="text"
-												id="usuario" name="usuario" placeholder=""
-												class="form-control">
+										
+											<label>Nombre <input type="text"
+												 name="nombre" 
+												class="form-control"></label>
 
-										</div>
+										
 
 										<!-- Cedula -->
 
 										<div class="form-group">
-											<label for="cedula">C&eacute;dula</label> <input type="text"
-												id="cedula" name="cedula" placeholder=""
-												class="form-control">
+											<label>Cédula <input type="text"
+												 name="cedula" 
+												class="form-control"></label>
 
 										</div>
 
 										<!-- Telefono -->
 
 										<div class="form-group">
-											<label for="telefono">Tel&eacute;fono</label> <input
-												type="text" id="telefono" name="telefono" placeholder=""
-												class="form-control">
+											<label>Teléfono <input
+												type="text" name="telefono" 
+												class="form-control"></label>
 
 										</div>
 
 										<!-- Correo -->
 
 										<div class="form-group">
-											<label for="correo">Correo</label> <input type="text"
-												id="correo" name="correo" placeholder=""
-												class="form-control">
+											<label>Correo<input type="text"
+												 name="correo" 
+												class="form-control"></label> 
 
 										</div>
 
@@ -96,52 +96,55 @@
 
 										<div class="form-group">
 											<label class="control-label" for="nombreUsuario">Nombre
-												de Usuario</label> <input type="text" id="nombreUsuario"
-												name="nombreUsuario" placeholder="" class="form-control">
+												de Usuario <input type="text"
+												name="nombreUsuario"  class="form-control">
+												</label>
 
 										</div>
 
 										<!-- pais -->
 
 										<div class="form-group">
-											<label for="pais">Pa&iacute;s</label> <input type="text"
-												id="pais" name="pais" placeholder="" class="form-control">
-
+											<label for="pais">Pa&iacute;s <input type="text"
+											 name="pais" class="form-control">
+											</label>
 										</div>
 
 										<!-- estado -->
 
 										<div class="form-group">
-											<label for="estado">Estado</label> <input type="text"
-												id="estado" name="estado" placeholder=""
-												class="form-control">
+											<label for="estado">Estado <input type="text"
+											 name="estado" 
+												class="form-control"></label>
 
 										</div>
 
 										<!-- ciudad -->
 
 										<div class="form-group">
-											<label class="control-label" for="ciudad">Ciudad</label> <input
-												type="text" id="ciudad" name="ciudad" placeholder=""
-												class="form-control">
+											<label class="control-label" for="ciudad">Ciudad <input
+												type="text" id="ciudad" name="ciudad"
+												class="form-control"> </label>
 
 										</div>
 
 										<!-- codigo postal  -->
 
 										<div class="form-group">
-											<label for="codigoPostal">Codigo Postal</label> <input
-												type="text" id="codigoPostal" name="codigoPostal"
-												placeholder="" class="form-control">
+											<label for="codigoPostal">Código Postal <input
+												type="text" id="codigoPostal" name="codigoPostal" 
+												
+												placeholder="" class="form-control"> </label>
 
 										</div>
 
 										<!-- direccion -->
 
 										<div class="form-group">
-											<label class="control-label" for="direccion">Direcci&oacute;nn</label>
+											<label class="control-label" for="direccion">Direcci&oacute;n
 											<input type="text" id="direccion" name="direccion"
-												placeholder="" class="form-control">
+											
+												placeholder="" class="form-control"></label>
 
 										</div>
 
@@ -149,22 +152,12 @@
 										<!-- Password -->
 
 										<div class="contform-grouprols">
-											<label class="control-label" for="ciudad">Contrase&ntilde;a</label>
+											<label class="control-label" for="ciudad">Contrase&ntilde;a
 											<input type="password" id="contrasena" name="contrasena"
-												placeholder="" class="form-control">
+											
+											placeholder="" class="form-control"></label>
 
 										</div>
-
-
-										<!-- Password confirm-->
-
-										<div class="contform-grouprols">
-											<label class="control-label" for="ciudad">Confirme su
-												Contrase&ntilde;a</label> <input type="password" id="contrasenaC"
-												name="contrasenaC" placeholder="" class="form-control">
-
-										</div>
-
 
 										<button class="btn btn-default" type="submit" align="center">Actualizar</button>
 									</form>
