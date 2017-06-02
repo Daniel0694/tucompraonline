@@ -36,10 +36,7 @@
 						<li><a href="#" onclick="showModal('acerca')">Acerca de </a></li>
 						<li><a href="#" onclick="showModal('ayuda')">Ayuda</a></li>
 						<li><a href=# onclick="showModal('sesion')">Cerrar Sesi&oacute;n</a></li>
-						<td><button type="button" class="btn btn-default btn-sm"
-										id="agregar">
-										Agregar a carrito<span class="glyphicon glyphicon-heart"></span>
-									</button></td>
+					
 					</ul>
 
 				</div>
@@ -62,7 +59,7 @@
 
 		<!-- form de busquedas  -->
 
-		<form th:object="${UsuarioForm}" th:action="@{/buscarProducto}"
+		<form  th:action="@{/buscarProducto}"
 			method="post">
 
 
