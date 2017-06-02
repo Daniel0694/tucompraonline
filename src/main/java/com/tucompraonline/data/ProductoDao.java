@@ -2,6 +2,7 @@ package com.tucompraonline.data;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -11,6 +12,7 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.SqlOutParameter;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
@@ -129,7 +131,9 @@ public class ProductoDao {
 				.addValue("_imagen", producto.getRutaImagen());
 		Map<String, Object> outParameters = SJDBCInsertaProducto.execute(parameterSourceProducto);
 		
-		producto.setIdProducto(Integer.parseInt(outParameters.get("_id_producto").toString()));
+		producto.setIdProducto(Integer.parseInt((outParameters.get("id_producto").toString())));
+		
+		//category.setId(Integer.parseInt((outParameter.get("p_id").toString())));
 		
 		for (int i = 0; i < producto.getCategorias().size(); i++) {
 			SqlParameterSource parameterSourceProductoCategoria = new MapSqlParameterSource()

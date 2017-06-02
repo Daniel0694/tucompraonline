@@ -34,7 +34,7 @@ public class ProductoService {
 	public List<Producto> getProductosPorDisponibilidad() throws SQLException {
 		return productoDao.getProductosPorDisponibilidad();
 	}
-	public Producto insertarProducto (Producto producto){
+	public Producto insertarProducto (Producto producto)throws SQLException{
 		return productoDao.insertarProducto(producto);
 	}
 	public boolean actualizaProducto (Producto producto){
