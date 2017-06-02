@@ -17,7 +17,7 @@
 <body id="principal">
 
 	<h1>Tu Compra Online</h1>
-	<header>
+<header>
 		<div class="navbar navbar-default navbar-fixed-top">
 			<div class="container">
 				<div class="navbar-header">
@@ -57,8 +57,6 @@
 		</div>
 
 	</header>
-
-
 
 
 	<section id="contenedor">
@@ -122,6 +120,7 @@
 								<td><span th:text="${entry.descripcion}"></span></td>
 								<td><span th:text="${entry.precio}"></span></td>
 								<td><span th:text="${entry.cantidadDisponible}"></span></td>
+								<td><img th:src="${entry.rutaImagen}" /></td>
 								
 								
 							</tr>

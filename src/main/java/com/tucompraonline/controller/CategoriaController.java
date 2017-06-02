@@ -10,9 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.tucompraonline.business.CategoriaService;
-import com.tucompraonline.business.ProductoService;
 import com.tucompraonline.domain.Categoria;
-import com.tucompraonline.domain.Producto;
+
 
 @Controller
 public class CategoriaController {

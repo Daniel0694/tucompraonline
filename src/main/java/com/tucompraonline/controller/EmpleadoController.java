@@ -11,12 +11,19 @@ public class EmpleadoController {
 	
 
 	@RequestMapping(value = "/actualizarEmpleado", method = RequestMethod.GET)
-	public String showRegistroUsuario() {
+	public String showActualizarEmpleado() {
 		
 		return "actualizarEmpleado";
 			
 		
 	}
 	
-
+	
+	@RequestMapping(value = "/actualizarEmpleado/actualizar", method = RequestMethod.GET)
+	public String actualizarEmpleado() {
+		
+		return "success";
+			
+		
+	}
 }
