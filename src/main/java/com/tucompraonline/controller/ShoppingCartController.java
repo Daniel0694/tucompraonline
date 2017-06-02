@@ -34,7 +34,6 @@ public class ShoppingCartController {
 		try {
 			model.addAttribute("categorias", categoriaService.getCategorias());
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Registro de Usuarios</title>
+<title>Actualizar Categor&iacute;a</title>
 <link rel="stylesheet" type="text/css" href="css/estilos.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -70,11 +70,17 @@
 									<form th:action="@{/actualizarCategoria/actualizar}" method="post">
 
 
+				<select value="codigo" name="codigo">
+				<option th:each="categoria: ${categorias}"
+					th:value="${categoria.idCategoria}"
+					th:text="${categoria.nombre}"></option>
+				</select>
+
 
 										<!-- Nombre Categoria -->
 
 										<div class="form-group">
-											<label class="control-label" for="estado">Nombre de la
+											<label class="control-label">Nombre de la
 												Categoria</label> <input type="text" id="nombre" name="nombre"
 												placeholder="" class="form-control">
 											
@@ -84,8 +90,8 @@
 										<!-- Descripcion -->
 
 										<div class="contform-grouprols">
-											<label class="control-label" for="ciudad">Descripcion</label>
-											<input type="text-box" id="descripccion" name="descripccion"
+											<label class="control-label" >Descripcion</label>
+											<input type="text-box" id="descripcion" name="descripcion"
 												placeholder="" class="form-control">
 											
 										</div>
@@ -93,7 +99,7 @@
 
 										<div>
 											<button class="btn btn-default" type="submit" align="center">Actualizar
-												Categor&iacute;</button>
+												Categor&iacute;a</button>
 
 										</div>
 									</form>

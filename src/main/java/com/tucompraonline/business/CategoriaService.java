@@ -27,5 +27,8 @@ public class CategoriaService {
 	public boolean actualizaCategoria(Categoria categoria) {
 		return categoriaDao.actualizaCategoria(categoria);
 	}
+	public Categoria getCategoria(int idCategoria) {
+		return categoriaDao.getCategoria(idCategoria);
+	}
 	
 }

@@ -16,6 +16,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.tucompraonline.domain.Categoria;
+import com.tucompraonline.domain.Producto;
 
 @Repository
 public class CategoriaDao {
@@ -82,6 +83,17 @@ public class CategoriaDao {
 		}
 		return true;
 
+	}
+	
+	public Categoria getCategoria(int idCategoria) {
+		List<Categoria> categorias = new ArrayList<>();
+
+		String selectSql = "CALL getCategoria("+ idCategoria+");";
+		jdbcTemplate.query(selectSql, new Object[] {},
+						(rs, row) -> new Categoria(rs.getInt("id_categoria"), rs.getString("nombre"),
+								rs.getString("descripcion")))
+				.forEach(entry -> categorias.add(entry));
+		return categorias.get(0);
 	}
 	
 	

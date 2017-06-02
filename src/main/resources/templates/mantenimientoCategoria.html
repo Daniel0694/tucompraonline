@@ -87,7 +87,7 @@
 
 			<div class="field" id="searchform">
 				<input class="form-control" type="text" id="searchterm"
-					placeholder="que estas buscando ?" />
+					placeholder="¿Qu&eacute; est&aacute;s buscando?" />
 				<button type="submit" class="btn btn-default btn-sm" id="search">
 					Buscar! <span class="glyphicon glyphicon-search"></span>
 				</button>
@@ -117,15 +117,27 @@
 							<tr th:each="entry,status : ${categorias}">
 								<td><span th:text="${entry.nombre}"></span></td>
 								<td><span th:text="${entry.descripcion}"></span></td>
-								<td><button type="button"  class="btn btn-default btn-sm"
-										id="agregar" onclick="showModal('categoria')">
-										Eliminar<span class="glyphicon glyphicon-trash"></span>
-									 </button>
+								<td>
+								
+								
+<!-- 								<button type="button"  class="btn btn-default btn-sm" -->
+<!-- 										id="agregar" onclick="showModal('categoria')"  -->
+<!-- 										>Eliminar<span class="glyphicon glyphicon-trash"></span> -->
+											
+<!-- 									 </button> -->
+									 
+									 
+									 <a class="btn btn-default btn-sm"  th:href="@{/eliminarCategoria/{id}(id=${entry.idCategoria})}">
+									 Eliminar<span class="glyphicon glyphicon-trash"></a>
+
+
 									<button type="button"  class="btn btn-default btn-sm"
 										id="agregar" onclick="location.href='/actualizarCategoria'" >
 										Actualizar<span class="glyphicon glyphicon-refresh"></span>
 										
-									</button></td>
+									</button>
+									
+									</td>
 							</tr>
 
 						</table>
@@ -213,8 +225,8 @@
 
 
 			<div class="row panel-body">
-				<p>¿Está seguro que desea eliminar   la siguiente categor&iacutte;a ? <br>
-		Nombre de Categor&iacutea:
+				<p>¿Está seguro que desea eliminar   la siguiente categor&iacute;a?<br>
+		Nombre de Categor&iacute;a:
 		<br>Descripci&oacute;n:
 		<br></p>
 			</div>
@@ -222,7 +234,7 @@
 			<div class="row">
 				<button class="btn btn-default" type="button"
 					onclick="closeModal('categoria')">No</button>
-					<a th:href="@{/eliminarCategoria}" class="btn btn-default">Si</a>
+					<a  class="btn btn-default">Si</a>
 			</div>
 			
 		</div>

@@ -4,9 +4,13 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.AntPathMatcher;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,10 +26,13 @@ public class CategoriaController {
 	@Autowired
 	private CategoriaService categoriaService;
 	private List<Categoria> categorias;
+	private Categoria categoriaActual;
 
 	@RequestMapping(value = "/registroCategoria", method = RequestMethod.GET)
 	public String showRegistrarCategoria(Model model) {
 
+	
+		
 		return "registroCategoria";
 
 	}
@@ -67,30 +74,46 @@ public class CategoriaController {
 	@RequestMapping(value = "/actualizarCategoria", method = RequestMethod.GET)
 	public String showactualizarCategoria(Model model) {
 
-		//// traer  los  datos  del producto a  actualizar
-
+		try {
+			model.addAttribute("categorias", categoriaService.getCategorias());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		return "actualizarCategoria";
 
 	}
 
 
-	@RequestMapping(value = "/actualizarCategoria/actualizar", method = RequestMethod.GET)
-	public String actualizarCategoria(Model model) {
+	@RequestMapping(value = "/actualizarCategoria/actualizar", method = RequestMethod.POST)
+	public String actualizarCategoria(@RequestParam Map<String, String> requestParams,Model model) {
 
-		//// traer  los  datos  del producto a  actualizar
+		int id =Integer.parseInt( requestParams.get("codigo"));
+		String nombreCat = requestParams.get("nombre");
+		String descripcionCat =requestParams.get("descripcion");
+
+		Categoria categoria = new Categoria(id,nombreCat,descripcionCat);	
+
+		categoriaService.actualizaCategoria(categoria);
 
 		return "success";
 
 	}
 
 
-	@RequestMapping(value = "/eliminarCategoria", method = RequestMethod.GET)
-	public String eliminarProducto(Model model) {
 
+	@RequestMapping(value ="/eliminarCategoria/{id}/**", method = RequestMethod.GET)
+	public String   showeliminarCategoria(@PathVariable String id, HttpServletRequest request, Model model) {
 
+		String var = (new AntPathMatcher().extractPathWithinPattern("/{id}/**", request.getRequestURI()));
+		int idCat = Integer.parseInt(var);
 
-
-		return "success";
+		categoriaActual = categoriaService.getCategoria(idCat);
+		
+		categoriaService.eliminarCategoria(categoriaActual.getIdCategoria());
+		
+		 return "success";
 
 	}
 
