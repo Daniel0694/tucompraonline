@@ -51,7 +51,7 @@ public class CategoriaDao {
 		SqlParameterSource parameterSource = new MapSqlParameterSource().addValue("nombre_categoria", categoria.getNombre())
 				.addValue("descripcion_categoria", categoria.getDescripcion());
 		Map<String, Object> outParameters = SJDBCInsertarCategoria.execute(parameterSource);
-		categoria.setIdCategoria(Integer.parseInt(outParameters.get("id_categoria").toString()));
+//		categoria.setIdCategoria(Integer.parseInt(outParameters.get("id_categoria").toString()));
 		return categoria;
 	}
 	
