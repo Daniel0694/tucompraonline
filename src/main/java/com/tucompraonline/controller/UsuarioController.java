@@ -30,13 +30,13 @@ public class UsuarioController {
 	@RequestMapping(value = "/registro/salvar", method = RequestMethod.POST)
 	public String salvarUsuario(Usuario usuario) {
 		
-		System.out.println("TEST1");
+		
 		
 		Cliente cliente = new Cliente();
 		BeanUtils.copyProperties(usuario, cliente);
 		cliente.setActivo(true);
 		
-		System.out.println("TEsT2");
+		
 		
 		try {
 			clienteService.insertarCliente(cliente);
