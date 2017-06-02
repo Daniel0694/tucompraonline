@@ -19,7 +19,7 @@ public class ProductoController {
 	private List<Producto> productos;
 	
 	@RequestMapping(value = "/registroProducto", method = RequestMethod.GET)
-	public String registrarProducto(Model model) {
+	public String showRegistrarProducto(Model model) {
 
 		return "registroProducto";
 
@@ -27,7 +27,7 @@ public class ProductoController {
 	
 	
 	@RequestMapping(value = "/mantenimientoProductos", method = RequestMethod.GET)
-	public String mantenimientoProducto(Model model) {
+	public String showMantenimientoProducto(Model model) {
 		
 		
 		productos = productoService.getProductos();
@@ -38,8 +38,8 @@ public class ProductoController {
 	}
 	
 	
-	@RequestMapping(value = "/mantenimientoProductos/actualizar", method = RequestMethod.GET)
-	public String actualizarProducto(Model model) {
+	@RequestMapping(value = "/actualizarProductos", method = RequestMethod.GET)
+	public String showActualizarProducto(Model model) {
 		
 		//// traer  los  datos  del producto a  actualizar
 	
@@ -48,14 +48,24 @@ public class ProductoController {
 	}
 	
 	
-	@RequestMapping(value = "/mantenimientoProductos/eliminar", method = RequestMethod.GET)
+	@RequestMapping(value = "/actualizarProductos/actualizar", method = RequestMethod.GET)
+	public String actualizarProducto(Model model) {
+		
+		//// traer  los  datos  del producto a  actualizar
+	
+	return "success";
+	
+	}
+	
+	
+	
+	@RequestMapping(value = "/eliminarProducto", method = RequestMethod.GET)
 	public String eliminarProducto(Model model) {
 		
 		
-		productos = productoService.getProductos();
-		model.addAttribute("productos", productos);
 	
-	return "elimina";
+	
+	return "success";
 	
 	}
 

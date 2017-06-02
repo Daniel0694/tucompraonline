@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Registro de Producto</title>
+<title>Registro de Usuarios</title>
 <link rel="stylesheet" type="text/css" href="css/estilos.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -35,8 +35,8 @@
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown"> Categor&iacute;as <b class="caret"></b></a>
 							<ul class="dropdown-menu">
-								<li><a href="/mantenimientoProductos">Mantenimiento</a></li>
-								<li><a href="#">Registro</a></li>
+								<li><a href="/mantenimientoCategoria">Mantenimiento</a></li>
+								<li><a href="/registroCategoria">Registro</a></li>
 							</ul></li>
 						<li><a href="#">Actualizar mis datos</a></li>
 
@@ -53,7 +53,7 @@
 
 	</header>
 	<section id="contenedor">
-	<h1 align="center"><br>Registro de Productos</h1>
+	<h1 align="center"><br>Actualizar Categor&iacute;a</h1>
 	<header>
 		
 		<div class="container">
@@ -67,23 +67,15 @@
 						<div class="panel-body">
 							<div class="row">
 								<div class="col-lg-12">
-									<form th:object="${RegistroForm}"
-										th:action="@{/registro/salvar}" method="post">
-
-										<!-- Cantidad -->
-										<div class="form-group">
-											<label for="cantidad">Cantidad</label> <input type="text"
-												id="cantidad" name="cantidad" placeholder=""
-												class="form-control">
-										
-										</div>
+									<form th:action="@{/actualizarCategoria/actualizar}" method="post">
 
 
-										<!-- Nombre Producto -->
+
+										<!-- Nombre Categoria -->
 
 										<div class="form-group">
-											<label class="control-label" for="estado">Nombre del
-												Producto</label> <input type="text" id="nombre" name="nombre"
+											<label class="control-label" for="estado">Nombre de la
+												Categoria</label> <input type="text" id="nombre" name="nombre"
 												placeholder="" class="form-control">
 											
 										</div>
@@ -95,32 +87,13 @@
 											<label class="control-label" for="ciudad">Descripcion</label>
 											<input type="text-box" id="descripccion" name="descripccion"
 												placeholder="" class="form-control">
-										
-										</div>
-
-
-										<!-- Precio-->
-
-										<div class="contform-grouprols">
-											<label class="control-label" for="precio">Precio </label> <input
-												type="input" id="precio" name="precio" placeholder=""
-												class="form-control">
 											
 										</div>
 
 
-										<!-- Selecciona una imagen-->
-
-										<div class="contform-grouprols">
-											<label class="control-label" for="ciudad">Seleccione
-												una imagen de su producto</label> <input type="file" name="pic"
-												accept="image/*">
-
-										</div>
-
 										<div>
-											<button class="btn btn-default" type="submit" align="center">Insertar
-												Producto</button>
+											<button class="btn btn-default" type="submit" align="center">Actualizar
+												Categor&iacute;</button>
 
 										</div>
 									</form>
@@ -193,4 +166,4 @@
 
 
 </body>
-</html>
+</html>>

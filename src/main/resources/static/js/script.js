@@ -1,7 +1,6 @@
 function home() {
-		document.getElementById('content').innerHTML = 'CARRITO'
-	}
-
+	document.getElementById('content').innerHTML = 'CARRITO'
+}
 
 function showModal(name) {
 
@@ -13,8 +12,10 @@ function showModal(name) {
 		modal = document.getElementById('modal-Acercade');
 	else if (name == "sesion")
 		modal = document.getElementById('modal-CerrarSesion');
-	else if(name=="producto")
+	else if (name == "producto")
 		modal = document.getElementById('modal-producto');
+	else if (name == "categoria")
+		modal = document.getElementById('modal-categoria');
 
 	modal.style.display = 'block';
 }
@@ -29,8 +30,10 @@ function closeModal(name) {
 		modal = document.getElementById('modal-Acercade');
 	else if (name == "sesion")
 		modal = document.getElementById('modal-CerrarSesion');
-	else if(name=="producto")
+	else if (name == "producto")
 		modal = document.getElementById('modal-producto');
+	else if (name == "categoria")
+		modal = document.getElementById('modal-categoria');
 
 	modal.style.display = 'none';
 }

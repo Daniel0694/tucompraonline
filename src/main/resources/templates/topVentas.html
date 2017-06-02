@@ -73,28 +73,6 @@
 			method="post">
 
 
-			<div class="col-sm-3">
-
-				<select class="form-control">
-					<option value="todas">Todas</option>
-					<option>todas las de mas</option>
-
-				</select>
-
-
-
-
-			</div>
-
-
-			<div class="field" id="searchform">
-				<input class="form-control" type="text" id="searchterm"
-					placeholder="que estas buscando ?" />
-				<button type="submit" class="btn btn-default btn-sm" id="search">
-					Buscar! <span class="glyphicon glyphicon-search"></span>
-				</button>
-			</div>
-
 
 
 			</aside>
@@ -125,8 +103,6 @@
 								<td><span th:text="${entry.descripcion}"></span></td>
 								<td><span th:text="${entry.precio}"></span></td>
 								<td><span th:text="${entry.cantidadDisponible}"></span></td>
-								<td><img th:src="${entry.rutaImagen}" /></td>
-								
 								<td><button type="submit" class="btn btn-default btn-sm"
 										id="agregar">
 										Agregar a carrito<span class="glyphicon glyphicon-heart"></span>

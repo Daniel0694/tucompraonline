@@ -33,15 +33,15 @@
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown"> Productos <b class="caret"></b></a>
 							<ul class="dropdown-menu">
-								<li><a href="">Mantenimiento</a></li>
+								<li><a href="/mantenimientoProducto">Mantenimiento</a></li>
 								<li><a href="/registroProducto">Registro</a></li>
 							</ul></li>
 
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown"> Categor&iacute;as <b class="caret"></b></a>
 							<ul class="dropdown-menu">
-								<li><a href="#">Mantenimiento</a></li>
-								<li><a href="#">Registro</a></li>
+							<li><a href="/mantenimientoCategoria">Mantenimiento</a></li>
+								<li><a href="/registroCategoria">Registro</a></li>
 							</ul></li>
 						<li><a href="#">Actualizar mis datos</a></li>
 
@@ -122,12 +122,13 @@
 								<td><span th:text="${entry.descripcion}"></span></td>
 								<td><span th:text="${entry.precio}"></span></td>
 								<td><span th:text="${entry.cantidadDisponible}"></span></td>
+								
 								<td><button type="button"  class="btn btn-default btn-sm"
 										id="agregar" onclick="showModal('producto')">
 										Eliminar<span class="glyphicon glyphicon-trash"></span>
 									 </button>
 									<button type="button"  class="btn btn-default btn-sm"
-										id="agregar" onclick="location.href='/mantenimientoProductos/actualizar'" >
+										id="agregar" onclick="location.href='/actualizarProductos'" >
 										Actualizar<span class="glyphicon glyphicon-refresh"></span>
 										
 									</button></td>
@@ -227,7 +228,7 @@
 			<div class="row">
 				<button class="btn btn-default" type="button"
 					onclick="closeModal('producto')">No</button>
-					<a th:href="@{/mantenimientoProductos/eliminar}" class="btn btn-default">Si</a>
+					<a th:href="@{/eliminarProducto}" class="btn btn-default">Si</a>
 			</div>
 			
 		</div>
