@@ -1,5 +1,7 @@
 package com.tucompraonline.business;
 
+import java.sql.SQLException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +18,7 @@ public class ClienteService {
 	public Cliente getCliente (String user, String pass){
 		return clienteDao.getCliente(user, pass);
 	}
-	public Cliente insertarCliente (Cliente cliente){
+	public Cliente insertarCliente (Cliente cliente) throws SQLException{
 		return clienteDao.insertarCliente(cliente);
 	}
 	

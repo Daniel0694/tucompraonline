@@ -22,22 +22,22 @@
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-lg-12">
-								<form th:object="${UsuarioForm}"
+								<form th:object="${usuario}"
 									th:action="@{/registro/salvar}" method="post">
 
 										<!-- Nombre -->
-									<div class="form-group">
+									
 										<label for="usuario">Nombre</label> <input type="text"
-											id="usuario" name="usuario" placeholder=""
+											id="usuario" name="usuario" th:field="*{nombre}" 
 											class="form-control">
 										
-									</div>
+									
 
 									<!-- Cedula -->
 
 									<div class="form-group">
 										<label for="cedula">Cédula</label> <input type="text"
-											id="cedula" name="cedula" placeholder="" class="form-control">
+											id="cedula" name="cedula" th:field="*{cedula}" placeholder="" class="form-control">
 									
 									</div>
 
@@ -45,7 +45,7 @@
 
 									<div class="form-group">
 										<label for="telefono">Telefono</label> <input type="text"
-											id="telefono" name="telefono" placeholder=""
+											id="telefono" name="telefono" th:field="*{telefono}" placeholder=""
 											class="form-control">
 										
 									</div>
@@ -53,8 +53,8 @@
 									<!-- Correo -->
 
 									<div class="form-group">
-										<label for="correo">Correo</label> <input type="text" id="país"
-											name="correo" placeholder="" class="form-control">
+										<label for="correo">Correo</label> <input type="text" id="correo"
+											name="correo" th:field="*{correoElectronico}"placeholder="" class="form-control">
 							
 									</div>
 
@@ -62,7 +62,8 @@
 
 									<div class="form-group">
 										<label class="control-label" for="nombreUsuario">Nombre de Usuario</label> <input
-											type="text" id="nombreUsuario" name="nombreUsuario" placeholder=""
+											type="text" id="nombreUsuario" name="nombreUsuario"
+											th:field="*{nombreUsuario}" placeholder=""
 											class="form-control">
 										
 									</div>
@@ -72,7 +73,8 @@
 
 									<div class="contform-grouprols">
 										<label class="control-label" for="ciudad">Contrasena</label> <input
-											type="password" id="contrasena" name="contrasena" placeholder=""
+											type="password" id="contrasena" name="contrasena" 
+											th:field="*{password}"placeholder=""
 											class="form-control">
 										
 									</div>
@@ -88,7 +90,7 @@
 									</div>
 									
 							
-							<button class="btn btn-default"type="submit" align="center">Insertar Usuario</button>
+							<button class="btn btn-default"type="submit" >Insertar Usuario</button>
 							</form>
 						</div>
 

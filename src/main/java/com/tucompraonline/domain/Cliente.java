@@ -11,7 +11,11 @@ public class Cliente extends Usuario{
 	
 	public Cliente() {
 		super();	
-		
+		this.pais = "---"; 
+		this.estado = "---";
+		this.ciudad = "---";
+		this.codigoPostal = "---";
+		this.direccion = "---";
 	}
 	
 	public Cliente(int idUsuario, String cedula, 

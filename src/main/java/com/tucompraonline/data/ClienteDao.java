@@ -1,5 +1,6 @@
 package com.tucompraonline.data;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -59,7 +60,7 @@ public class ClienteDao {
 	}
 	
 	@Transactional
-	public Cliente insertarCliente (Cliente cliente){
+	public Cliente insertarCliente (Cliente cliente)throws SQLException{
 
 		
 		SqlParameterSource parameterSourceCliente = new MapSqlParameterSource()
@@ -77,7 +78,7 @@ public class ClienteDao {
 				.addValue("_direccion", cliente.getDireccion());
 		Map<String, Object> outParameters = SJDBCAgregarCliente.execute(parameterSourceCliente);
 		
-		cliente.setIdUsuario(Integer.parseInt(outParameters.get("_id_usuario").toString()));
+		//cliente.setIdUsuario(Integer.parseInt(outParameters.get("_id_usuario").toString()));
 		
 		
 		return cliente;
