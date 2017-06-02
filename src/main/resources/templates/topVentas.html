@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -29,26 +29,12 @@
 				<div class="navbar-collapse collapse" id="navbar-main">
 					<ul class="nav navbar-nav">
 
-						<li><a href="/registro">Reg&iacute;strate</a></li>
-						<li><a href="#">Carrito</a></li>
+						
 						<li><a href="#" onclick="showModal('acerca')">Acerca de </a></li>
 						<li><a href="#" onclick="showModal('ayuda')">Ayuda</a></li>
 
 					</ul>
-
-					<!-- Form para Login  -->
-					<form th:object="${UsuarioForm}" th:action="@{/registro/login}"
-						method="post" class="navbar-form navbar-right" role="search">
-						<div class="form-group">
-							<input type="text" class="form-control" name="username"
-								placeholder="Usuario">
-						</div>
-						<div class="form-group">
-							<input type="text" class="form-control" name="password"
-								placeholder="Contraseña">
-						</div>
-						<button type="submit" class="btn btn-default">Entrar</button>
-					</form>
+	
 				</div>
 			</div>
 		</div>
@@ -69,40 +55,39 @@
 
 		<!-- form de busquedas  -->
 
-		<form th:object="${UsuarioForm}" th:action="@{/buscarProducto}"
-			method="post">
+		<form  th:action="@{/reporteVentas}">
 
-
-
-
-			</aside>
 			<section id="principal">
 
-				<div th:if="${productos}">
-					<div th:if="${productos.isEmpty()}">
-						<p>No se encuentran productos disponibles en este momento.</p>
+				<div th:if="${reporteVentas}">
+					<div th:if="${reporteVentas.isEmpty()}">
+						<p>No se encuentran ventas disponibles en este momento.</p>
 					</div>
 
-					<div th:if="${!productos.isEmpty()}">
+					<div th:if="${!reporteVentas.isEmpty()}">
 
 
-						<p>Catálogo actual de productos:</p>
+						<p>Top actual de venta de productos:</p>
 						<table class="table table-hover">
 
 							<tr>
-								<th>ID</th>
+						
 								<th>Nombre</th>
 								<th>Descripción</th>
 								<th>Precio</th>
 								<th>Cantidad Disponible</th>
+								<th>Total</th>
+								<th>Imagen</th>
 							</tr>
 
-							<tr th:each="entry,status : ${productos}">
-								<td><span th:text="${entry.idProducto}"></span></td>
-								<td><span th:text="${entry.nombreProducto}"></span></td>
+							<tr th:each="entry,status : ${reporteVentas}">
+								<td><span th:text="${entry.nombre}"></span></td>
 								<td><span th:text="${entry.descripcion}"></span></td>
 								<td><span th:text="${entry.precio}"></span></td>
 								<td><span th:text="${entry.cantidadDisponible}"></span></td>
+										<td><span th:text="${entry.total}"></span></td>
+								<td><img th:src="${entry.rutaImagen}" /></td>
+								
 								<td><button type="submit" class="btn btn-default btn-sm"
 										id="agregar">
 										Agregar a carrito<span class="glyphicon glyphicon-heart"></span>
