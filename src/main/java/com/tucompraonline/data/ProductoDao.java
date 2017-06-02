@@ -17,6 +17,7 @@ import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.jayway.jsonpath.internal.function.text.Concatenate;
 import com.tucompraonline.domain.Categoria;
 import com.tucompraonline.domain.Producto;
 
@@ -188,7 +189,7 @@ public class ProductoDao {
 	public List<Producto> getProductosPorCategoriaYNombre(int idCategoria, String nombreProducto) {
 		List<Producto> productos = new ArrayList<>();
 
-		String selectSql = "CALL productosPorCategoriaYNombre("+idCategoria+","+nombreProducto+");";
+		String selectSql = "CALL productosPorCategoriaYNombre("+idCategoria+",'"+nombreProducto+"');";
 		jdbcTemplate.query(selectSql, new Object[] {},
 						(rs, row) -> new Producto(rs.getInt("id_producto"), 
 								rs.getString("nombre"),
