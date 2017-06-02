@@ -44,4 +44,10 @@ public class ProductoService {
 	public boolean eliminaProducto (int idProducto){
 		return productoDao.eliminaProducto(idProducto);
 	}
+	public List<Producto> getProductosPorCategoriaYNombre(int idCategoria, String nombreProducto) {
+		return productoDao.getProductosPorCategoriaYNombre(idCategoria, nombreProducto);
+	}
+	public List<Producto> getProductoNombre(String nombreProducto) {
+		return productoDao.getProductoNombre(nombreProducto);
+	}
 }

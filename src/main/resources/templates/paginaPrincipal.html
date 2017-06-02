@@ -41,15 +41,12 @@
 					<form th:object="${usuario}" th:action="@{/registro/login}"
 						method="post" class="navbar-form navbar-right" role="search">
 						<div class="form-group">
-							<input type="text" class="form-control" 
-							id="usuario" 
-							
-							 name="nombreUsuario"
-								placeholder="Usuario">
+							<input type="text" class="form-control" id="usuario"
+								name="nombreUsuario" placeholder="Usuario">
 						</div>
 						<div class="form-group">
 							<input type="text" class="form-control" name="password"
-								placeholder="Contraseña" >
+								placeholder="Contraseña">
 						</div>
 						<button type="submit" class="btn btn-default">Entrar</button>
 					</form>
@@ -73,33 +70,34 @@
 
 		<!-- form de busquedas  -->
 
-		<form th:object="${UsuarioForm}" th:action="@{/buscarProducto}"
+		<form th:action="@{/buscarProducto}"
 			method="post">
 
 
 			<div class="col-sm-3">
 
-				<select class="form-control">
-					<option value="todas">Todas</option>
-					<option>todas las de mas</option>
+<!-- 				<select class="form-control"> -->
+<!-- 					<option value="todas">Todas las Categor&iacute;as</option> -->
+<!-- 					<option>todas las de mas</option> -->
 
+<!-- 				</select> -->
+				
+				<select value="codigo" name="codigo">
+				<option selected="selected" value="0">Todas las categor&iacute;as</option>
+				<option th:each="categoria: ${categorias}"
+					th:value="${categoria.idCategoria}"
+					th:text="${categoria.nombre}"></option>
 				</select>
-
-
-
-
 			</div>
 
 
 			<div class="field" id="searchform">
 				<input class="form-control" type="text" id="searchterm"
-					placeholder="que estas buscando ?" />
+					placeholder="¿Qu&eacute; est&aacute;s buscando?" name="nombre"/>
 				<button type="submit" class="btn btn-default btn-sm" id="search">
-					Buscar! <span class="glyphicon glyphicon-search"></span>
+					Buscar<span class="glyphicon glyphicon-search"></span>
 				</button>
 			</div>
-
-
 
 			</aside>
 			<section id="principal">
@@ -130,7 +128,7 @@
 								<td><span th:text="${entry.precio}"></span></td>
 								<td><span th:text="${entry.cantidadDisponible}"></span></td>
 								<td><img th:src="${entry.rutaImagen}" /></td>
-								
+
 								<td><button type="submit" class="btn btn-default btn-sm"
 										id="agregar">
 										Agregar a carrito<span class="glyphicon glyphicon-heart"></span>

@@ -182,8 +182,37 @@ public class ProductoDao {
 								rs.getInt("cantidad_disponible"),
 								rs.getString("imagen")))
 				.forEach(entry -> productos.add(entry));
-		// TODO recuperar categorias
 		return productos.get(0);
+	}
+
+	public List<Producto> getProductosPorCategoriaYNombre(int idCategoria, String nombreProducto) {
+		List<Producto> productos = new ArrayList<>();
+
+		String selectSql = "CALL productosPorCategoriaYNombre("+idCategoria+","+nombreProducto+");";
+		jdbcTemplate.query(selectSql, new Object[] {},
+						(rs, row) -> new Producto(rs.getInt("id_producto"), 
+								rs.getString("nombre"),
+								rs.getString("descripcion"), 
+								rs.getFloat("precio"), 
+								rs.getInt("cantidad_disponible"),
+								rs.getString("imagen")))
+				.forEach(entry -> productos.add(entry));
+		return productos;
+	}
+
+	public List<Producto> getProductoNombre(String nombreProducto) {
+		List<Producto> productos = new ArrayList<>();
+
+		String selectSql = "CALL productosPorNombre("+nombreProducto+");";
+		jdbcTemplate.query(selectSql, new Object[] {},
+						(rs, row) -> new Producto(rs.getInt("id_producto"), 
+								rs.getString("nombre"),
+								rs.getString("descripcion"), 
+								rs.getFloat("precio"), 
+								rs.getInt("cantidad_disponible"),
+								rs.getString("imagen")))
+				.forEach(entry -> productos.add(entry));
+		return productos;
 	}
 	
 
