@@ -20,11 +20,9 @@ public class Cliente extends Usuario{
 	
 	public Cliente(int idUsuario, String cedula, 
 			String nombre, String correoElectronico,
-			String telefono,String nombreUsuario,
-			String password, boolean activo,
-			String pais, String estado, String ciudad,
+			String telefono,String pais, String estado, String ciudad,
 			String codigoPostal, String direccion) {
-		super(idUsuario, cedula, nombre, correoElectronico, telefono, nombreUsuario, password, activo);
+		super(idUsuario, cedula, nombre, correoElectronico, telefono);
 		
 		this.pais = pais; 
 		this.estado = estado;

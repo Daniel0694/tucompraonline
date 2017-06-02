@@ -38,16 +38,13 @@ public class ClienteDao {
 		
 		List<Cliente> clientes = new ArrayList<>();
 
-		String selectSql = "CALL getCliente("+user+","+pass+");";
+		String selectSql = "CALL getCliente('"+user+"','"+pass+"');";
 		jdbcTemplate.query(selectSql, new Object[] {},
 						(rs, row) -> new Cliente(rs.getInt("id_usuario"),
 								rs.getString("cedula"),
 								rs.getString("nombre"),
 								rs.getString("correo_electronico"), 
 								rs.getString("telefono"),
-								rs.getString("nombre_usuario"),
-								rs.getString("password"),
-								rs.getBoolean("activo"),
 								rs.getString("pais"),
 								rs.getString("estado"),
 								rs.getString("ciudad"),

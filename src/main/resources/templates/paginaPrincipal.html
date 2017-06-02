@@ -38,15 +38,18 @@
 					</ul>
 
 					<!-- Form para Login  -->
-					<form th:object="${UsuarioForm}" th:action="@{/registro/login}"
+					<form th:object="${usuario}" th:action="@{/registro/login}"
 						method="post" class="navbar-form navbar-right" role="search">
 						<div class="form-group">
-							<input type="text" class="form-control" name="username"
+							<input type="text" class="form-control" 
+							id="usuario" 
+							
+							 name="nombreUsuario"
 								placeholder="Usuario">
 						</div>
 						<div class="form-group">
 							<input type="text" class="form-control" name="password"
-								placeholder="Contraseña">
+								placeholder="Contraseña" >
 						</div>
 						<button type="submit" class="btn btn-default">Entrar</button>
 					</form>

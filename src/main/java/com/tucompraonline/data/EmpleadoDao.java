@@ -43,10 +43,7 @@ public class EmpleadoDao {
 								rs.getString("cedula"),
 								rs.getString("nombre"),
 								rs.getString("correo_electronico"), 
-								rs.getString("telefono"),
-								rs.getString("nombre_usuario"),
-								rs.getString("password"),
-								rs.getBoolean("activo")))
+								rs.getString("telefono")))
 				.forEach(entry -> empleados.add(entry));
 		
 		return empleados.get(0);

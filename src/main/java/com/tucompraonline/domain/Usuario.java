@@ -17,8 +17,7 @@ public class Usuario {
 	
 	
 
-	public Usuario(int idUsuario, String cedula, String nombre, String correoElectronico, String telefono,
-			String nombreUsuario, String password, boolean activo) {
+	public Usuario(int idUsuario, String cedula, String nombre, String correoElectronico, String telefono) {
 		super();
 		this.idUsuario = idUsuario;
 		this.cedula = cedula;
